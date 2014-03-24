@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# An example hook script to prepare a packed repository for use over
+# dumb transports.
+#
+# To enable this hook, rename this file to "post-receive"
+while read oldrev newrev refname
+do
+        branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+        deployment_home=/opt/rwizflowy/prod
+        echo "Processing: branch=$branch newrev=$newrev ref=$refname"
+        if [ "master" = "$branch" ]; then
+                # Do something
+                echo "Deploying changes to $branch"
+                git --work-tree=$deployment_home checkout -f $branch
+                echo "Evaluating updates to cron"
+                bash $deployment_home/etc/cron/update_cron.sh
+        fi
+done

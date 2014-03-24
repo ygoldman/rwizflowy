@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing Slidify Content</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Testing Slidify Content">
+  <meta name="author" content="Yuriy M Goldman">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="libraries/widgets/nvd3/css/nv.d3.css"></link>
+<link rel=stylesheet href="libraries/widgets/nvd3/css/rNVD3.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  <script src="libraries/widgets/nvd3/js/jquery-1.8.2.min.js"></script>
+<script src="libraries/widgets/nvd3/js/d3.v3.min.js"></script>
+<script src="libraries/widgets/nvd3/js/nv.d3.min-new.js"></script>
+<script src="libraries/widgets/nvd3/js/fisheye.js"></script>
+
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Testing Slidify Content</h1>
+    <h2>With simple and complex code blocks</h2>
+    <p>Yuriy M Goldman<br/>Hacking through the brush</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Test Data Load</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Dan says, hello world! </li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Simple plots using ggplot2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/yurirocks.png" alt="plot of chunk yurirocks"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Interactive charts using googleVis</h2>
+  </hgroup>
+  <article data-timings="">
+    <!-- MotionChart generated in R 3.0.2 by googleVis 0.4.7 package -->
+
+<!-- Fri Feb 21 13:57:25 2014 -->
+
+<!-- jsHeader -->
+
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataMotionChartID3e2c48f7a402 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ "Apples",
+2008,
+"West",
+98,
+78,
+20,
+"2008-12-31" 
+],
+[
+ "Apples",
+2009,
+"West",
+111,
+79,
+32,
+"2009-12-31" 
+],
+[
+ "Apples",
+2010,
+"West",
+89,
+76,
+13,
+"2010-12-31" 
+],
+[
+ "Oranges",
+2008,
+"East",
+96,
+81,
+15,
+"2008-12-31" 
+],
+[
+ "Bananas",
+2008,
+"East",
+85,
+76,
+9,
+"2008-12-31" 
+],
+[
+ "Oranges",
+2009,
+"East",
+93,
+80,
+13,
+"2009-12-31" 
+],
+[
+ "Bananas",
+2009,
+"East",
+94,
+78,
+16,
+"2009-12-31" 
+],
+[
+ "Oranges",
+2010,
+"East",
+98,
+91,
+7,
+"2010-12-31" 
+],
+[
+ "Bananas",
+2010,
+"East",
+81,
+71,
+10,
+"2010-12-31" 
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('number','Year');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('string','Date');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartMotionChartID3e2c48f7a402() {
+var data = gvisDataMotionChartID3e2c48f7a402();
+var options = {};
+options["width"] =    600;
+options["height"] =    500;
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartID3e2c48f7a402')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartID3e2c48f7a402);
+})();
+function displayChartMotionChartID3e2c48f7a402() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+ 
+
+<!-- jsChart -->  
+
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID3e2c48f7a402"></script>
+ 
+
+<!-- divChart -->
+
+<div id="MotionChartID3e2c48f7a402"
+  style="width: 600px; height: 500px;">
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="id" style="background:;">
+  <hgroup>
+    <h2>Interactive charts using nvd3Plot of rCharts</h2>
+  </hgroup>
+  <article data-timings="">
+    <div id = 'chart3f8037c7f422' class = 'rChart nvd3'></div>
+
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart3f8037c7f422()
+    });
+    function drawchart3f8037c7f422(){  
+      var opts = {
+ "dom": "chart3f8037c7f422",
+"width":    800,
+"height":    400,
+"x": "wt",
+"y": "mpg",
+"type": "scatterChart",
+"id": "chart3f8037c7f422" 
+},
+        data = [
+ {
+ "mpg":             21,
+"cyl":              6,
+"disp":            160,
+"hp":            110,
+"drat":            3.9,
+"wt":           2.62,
+"qsec":          16.46,
+"vs":              0,
+"am":              1,
+"gear":              4,
+"carb":              4 
+},
+{
+ "mpg":             21,
+"cyl":              6,
+"disp":            160,
+"hp":            110,
+"drat":            3.9,
+"wt":          2.875,
+"qsec":          17.02,
+"vs":              0,
+"am":              1,
+"gear":              4,
+"carb":              4 
+},
+{
+ "mpg":           22.8,
+"cyl":              4,
+"disp":            108,
+"hp":             93,
+"drat":           3.85,
+"wt":           2.32,
+"qsec":          18.61,
+"vs":              1,
+"am":              1,
+"gear":              4,
+"carb":              1 
+},
+{
+ "mpg":           21.4,
+"cyl":              6,
+"disp":            258,
+"hp":            110,
+"drat":           3.08,
+"wt":          3.215,
+"qsec":          19.44,
+"vs":              1,
+"am":              0,
+"gear":              3,
+"carb":              1 
+},
+{
+ "mpg":           18.7,
+"cyl":              8,
+"disp":            360,
+"hp":            175,
+"drat":           3.15,
+"wt":           3.44,
+"qsec":          17.02,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              2 
+},
+{
+ "mpg":           18.1,
+"cyl":              6,
+"disp":            225,
+"hp":            105,
+"drat":           2.76,
+"wt":           3.46,
+"qsec":          20.22,
+"vs":              1,
+"am":              0,
+"gear":              3,
+"carb":              1 
+},
+{
+ "mpg":           14.3,
+"cyl":              8,
+"disp":            360,
+"hp":            245,
+"drat":           3.21,
+"wt":           3.57,
+"qsec":          15.84,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              4 
+},
+{
+ "mpg":           24.4,
+"cyl":              4,
+"disp":          146.7,
+"hp":             62,
+"drat":           3.69,
+"wt":           3.19,
+"qsec":             20,
+"vs":              1,
+"am":              0,
+"gear":              4,
+"carb":              2 
+},
+{
+ "mpg":           22.8,
+"cyl":              4,
+"disp":          140.8,
+"hp":             95,
+"drat":           3.92,
+"wt":           3.15,
+"qsec":           22.9,
+"vs":              1,
+"am":              0,
+"gear":              4,
+"carb":              2 
+},
+{
+ "mpg":           19.2,
+"cyl":              6,
+"disp":          167.6,
+"hp":            123,
+"drat":           3.92,
+"wt":           3.44,
+"qsec":           18.3,
+"vs":              1,
+"am":              0,
+"gear":              4,
+"carb":              4 
+},
+{
+ "mpg":           17.8,
+"cyl":              6,
+"disp":          167.6,
+"hp":            123,
+"drat":           3.92,
+"wt":           3.44,
+"qsec":           18.9,
+"vs":              1,
+"am":              0,
+"gear":              4,
+"carb":              4 
+},
+{
+ "mpg":           16.4,
+"cyl":              8,
+"disp":          275.8,
+"hp":            180,
+"drat":           3.07,
+"wt":           4.07,
+"qsec":           17.4,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              3 
+},
+{
+ "mpg":           17.3,
+"cyl":              8,
+"disp":          275.8,
+"hp":            180,
+"drat":           3.07,
+"wt":           3.73,
+"qsec":           17.6,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              3 
+},
+{
+ "mpg":           15.2,
+"cyl":              8,
+"disp":          275.8,
+"hp":            180,
+"drat":           3.07,
+"wt":           3.78,
+"qsec":             18,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              3 
+},
+{
+ "mpg":           10.4,
+"cyl":              8,
+"disp":            472,
+"hp":            205,
+"drat":           2.93,
+"wt":           5.25,
+"qsec":          17.98,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              4 
+},
+{
+ "mpg":           10.4,
+"cyl":              8,
+"disp":            460,
+"hp":            215,
+"drat":              3,
+"wt":          5.424,
+"qsec":          17.82,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              4 
+},
+{
+ "mpg":           14.7,
+"cyl":              8,
+"disp":            440,
+"hp":            230,
+"drat":           3.23,
+"wt":          5.345,
+"qsec":          17.42,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              4 
+},
+{
+ "mpg":           32.4,
+"cyl":              4,
+"disp":           78.7,
+"hp":             66,
+"drat":           4.08,
+"wt":            2.2,
+"qsec":          19.47,
+"vs":              1,
+"am":              1,
+"gear":              4,
+"carb":              1 
+},
+{
+ "mpg":           30.4,
+"cyl":              4,
+"disp":           75.7,
+"hp":             52,
+"drat":           4.93,
+"wt":          1.615,
+"qsec":          18.52,
+"vs":              1,
+"am":              1,
+"gear":              4,
+"carb":              2 
+},
+{
+ "mpg":           33.9,
+"cyl":              4,
+"disp":           71.1,
+"hp":             65,
+"drat":           4.22,
+"wt":          1.835,
+"qsec":           19.9,
+"vs":              1,
+"am":              1,
+"gear":              4,
+"carb":              1 
+},
+{
+ "mpg":           21.5,
+"cyl":              4,
+"disp":          120.1,
+"hp":             97,
+"drat":            3.7,
+"wt":          2.465,
+"qsec":          20.01,
+"vs":              1,
+"am":              0,
+"gear":              3,
+"carb":              1 
+},
+{
+ "mpg":           15.5,
+"cyl":              8,
+"disp":            318,
+"hp":            150,
+"drat":           2.76,
+"wt":           3.52,
+"qsec":          16.87,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              2 
+},
+{
+ "mpg":           15.2,
+"cyl":              8,
+"disp":            304,
+"hp":            150,
+"drat":           3.15,
+"wt":          3.435,
+"qsec":           17.3,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              2 
+},
+{
+ "mpg":           13.3,
+"cyl":              8,
+"disp":            350,
+"hp":            245,
+"drat":           3.73,
+"wt":           3.84,
+"qsec":          15.41,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              4 
+},
+{
+ "mpg":           19.2,
+"cyl":              8,
+"disp":            400,
+"hp":            175,
+"drat":           3.08,
+"wt":          3.845,
+"qsec":          17.05,
+"vs":              0,
+"am":              0,
+"gear":              3,
+"carb":              2 
+},
+{
+ "mpg":           27.3,
+"cyl":              4,
+"disp":             79,
+"hp":             66,
+"drat":           4.08,
+"wt":          1.935,
+"qsec":           18.9,
+"vs":              1,
+"am":              1,
+"gear":              4,
+"carb":              1 
+},
+{
+ "mpg":             26,
+"cyl":              4,
+"disp":          120.3,
+"hp":             91,
+"drat":           4.43,
+"wt":           2.14,
+"qsec":           16.7,
+"vs":              0,
+"am":              1,
+"gear":              5,
+"carb":              2 
+},
+{
+ "mpg":           30.4,
+"cyl":              4,
+"disp":           95.1,
+"hp":            113,
+"drat":           3.77,
+"wt":          1.513,
+"qsec":           16.9,
+"vs":              1,
+"am":              1,
+"gear":              5,
+"carb":              2 
+},
+{
+ "mpg":           15.8,
+"cyl":              8,
+"disp":            351,
+"hp":            264,
+"drat":           4.22,
+"wt":           3.17,
+"qsec":           14.5,
+"vs":              0,
+"am":              1,
+"gear":              5,
+"carb":              4 
+},
+{
+ "mpg":           19.7,
+"cyl":              6,
+"disp":            145,
+"hp":            175,
+"drat":           3.62,
+"wt":           2.77,
+"qsec":           15.5,
+"vs":              0,
+"am":              1,
+"gear":              5,
+"carb":              6 
+},
+{
+ "mpg":             15,
+"cyl":              8,
+"disp":            301,
+"hp":            335,
+"drat":           3.54,
+"wt":           3.57,
+"qsec":           14.6,
+"vs":              0,
+"am":              1,
+"gear":              5,
+"carb":              8 
+},
+{
+ "mpg":           21.4,
+"cyl":              4,
+"disp":            121,
+"hp":            109,
+"drat":           4.11,
+"wt":           2.78,
+"qsec":           18.6,
+"vs":              1,
+"am":              1,
+"gear":              4,
+"carb":              2 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .x(function(d) { return d[opts.x] })
+          .y(function(d) { return d[opts.y] })
+          .width(opts.width)
+          .height(opts.height)
+         
+        
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Test Data Load'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Simple plots using ggplot2'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Interactive charts using googleVis'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Interactive charts using nvd3Plot of rCharts'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

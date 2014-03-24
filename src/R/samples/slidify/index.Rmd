@@ -1,0 +1,42 @@
+---
+title       : Testing Slidify Content
+subtitle    : With simple and complex code blocks
+author      : Yuriy M Goldman
+job         : Hacking through the brush
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js      # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: libraries/nvd3}
+mode        : selfcontained # {standalone, draft}
+---
+```{r dataLoad, message=FALSE, echo=FALSE}
+source("data.R")
+```
+## Test Data Load
+
+1. Dan says, `r sprintf("hello %s", hello)`! 
+
+--- .class #id 
+
+## Simple plots using ggplot2
+```{r yurirocks, fig.width=8, fig.height=5, echo=FALSE, message=FALSE}
+require(ggplot2)
+qplot(wt, mpg, data=mtcars)
+```
+
+--- .class #id
+## Interactive charts using googleVis
+```{r results = 'asis', commment = NA, message = F, echo = F}
+ require(googleVis)
+ M1 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+ print(M1, tag = 'chart')
+```
+
+--- c.class #id
+## Interactive charts using nvd3Plot of rCharts
+```{r nvd3plot, results = 'asis', comment = NA, message = F, echo = F}
+require(rCharts)
+n1 <- nPlot(mpg ~ wt, data = mtcars, type = 'scatterChart')
+n1$show('inline')
+```

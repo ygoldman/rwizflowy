@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle       : Testing Slidify Content\nsubtitle    : With simple and complex code blocks\nauthor      : Yuriy M Goldman\njob         : Hacking through the brush\nframework   : io2012        # {io2012, html5slides, shower, dzslides, ...}\nhighlighter : highlight.js      # {highlight.js, prettify, highlight}\nhitheme     : tomorrow      # \nwidgets     : []            # {mathjax, quiz, bootstrap}\next_widgets : {rCharts: libraries/nvd3}\nmode        : selfcontained # {standalone, draft}\n---\n```{r dataLoad, message=FALSE, echo=FALSE}\nsource(\"data.R\")\n```\n## Test Data Load\n\n1. Dan says, `r sprintf(\"hello %s\", hello)`! \n\n--- .class #id \n\n## Simple plots using ggplot2\n```{r yurirocks, fig.width=8, fig.height=5, echo=FALSE, message=FALSE}\nrequire(ggplot2)\nqplot(wt, mpg, data=mtcars)\n```\n\n--- .class #id\n## Interactive charts using googleVis\n```{r results = 'asis', commment = NA, message = F, echo = F}\n require(googleVis)\n M1 <- gvisMotionChart(Fruits, idvar=\"Fruit\", timevar=\"Year\")\n print(M1, tag = 'chart')\n```\n\n--- c.class #id\n## Interactive charts using nvd3Plot of rCharts\n```{r nvd3plot, results = 'asis', comment = NA, message = F, echo = F}\nrequire(rCharts)\nn1 <- nPlot(mpg ~ wt, data = mtcars, type = 'scatterChart')\nn1$show('inline')\n```\n",
+    "created" : 1393008139404.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2787430297",
+    "id" : "8DD6590C",
+    "lastKnownWriteTime" : 1393012559,
+    "path" : "~/src/better-datawizualization/etc/test/slidify/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

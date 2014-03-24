@@ -1,0 +1,53 @@
+Testing KnitR
+========================================================
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **Help** toolbar button for more details on using R Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+
+Now, let's do a crazy D3 plot:
+## Interactive charts using nvd3Plot of rCharts
+```{r results='asis', comment=NA, message=F, echo=F}
+## load the package
+require(rCharts)
+
+## utility function to add required assets such as CSS and JS libraries
+add_lib_assets <- function(lib, cdn = F, css = NULL) {
+    assets = get_assets(get_lib(lib), cdn = cdn)
+    if (!is.null(css)) {
+        assets$css = c(assets$css, css)
+    }
+    styles <- lapply(assets$css, function(style) {
+        sprintf("<link rel='stylesheet' href=%s>", style)
+    })
+
+    scripts <- lapply(assets$jshead, function(script) {
+        sprintf("<script type='text/javascript' src=%s></script>", script)
+    })
+    cat(paste(c(styles, scripts), collapse = "\n"))
+}
+
+# get assets from online repositories
+add_lib_assets("NVD3", cdn = TRUE, css = "http://rawgithub.com/ramnathv/rCharts/master/inst/libraries/nvd3/css/rNVD3.css")
+add_lib_assets("Polycharts", cdn = TRUE)
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")
+n1$print("nvd3mbar")
+```
+
+## Process a child Rmd, with for-loop to generate table
+```{r include=FALSE}
+out = NULL
+out = c(out, knit_child('child.Rmd'))
+```
+`r paste(out, collapse='\n')`

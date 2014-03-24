@@ -1,0 +1,2 @@
+LABEL=cloudimg-rootfs   /    ext4   defaults    0 0
+s3fs#rwizflowy   /mnt/s3-rwizflowy       fuse    defaults,noatime,uid=1000,gid=1000,allow_other   0 0
