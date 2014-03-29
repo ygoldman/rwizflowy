@@ -3,8 +3,14 @@
 language: python
 python:
   - "2.7"
+# command to install dependencies
+install:
+  - pip install -r etc/python/requirements.txt
+script:
+  - chkcrontab etc/cron/prod.cron
 after_success:
   - chmod 600 .travis/rwizflowy-deploy.pem # this key should have push access
   - ssh-add .travis/rwizflowy-deploy.pem
+  - ssh-keyscan -t rsa 54.85.131.174 >> ~/.ssh/known_hosts
   - git remote add deploy ssh://rwizflowy@54.85.131.174/home/rwizflowy/git-repos/rwizflowy/
   - git push deploy
