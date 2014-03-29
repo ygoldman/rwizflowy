@@ -9,8 +9,8 @@ install:
 script:
   - chkcrontab etc/cron/prod.cron
 after_success:
-  - chmod 600 .travis/rwizflowy-deploy.pem # this key should have push access
-  - ssh-add .travis/rwizflowy-deploy.pem
+  - chmod 600 .travis/rwizflowy-deployer.pem # this key should have push access
+  - eval `ssh-agent` && ssh-add .travis/rwizflowy-deployer.pem
   - ssh-keyscan -t rsa 54.85.131.174 >> ~/.ssh/known_hosts
   - git remote add deploy ssh://rwizflowy@54.85.131.174/home/rwizflowy/git-repos/rwizflowy/
   - git push deploy
