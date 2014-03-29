@@ -1,0 +1,7 @@
+# Validate this file: http://docs.travis-ci.com/user/travis-lint/
+# Run travis-lint from this repo's root
+after_success:
+  - chmod 600 .travis/rwizflowy-deploy.pem # this key should have push access
+  - ssh-add .travis/rwizflowy-deploy.pem
+  - git remote add deploy ssh://rwizflowy@54.85.131.174/home/rwizflowy/git-repos/rwizflowy/
+  - git push deploy
