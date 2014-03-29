@@ -1,5 +1,8 @@
 # Validate this file: http://docs.travis-ci.com/user/travis-lint/
 # Run travis-lint from this repo's root
+language: python
+python:
+  - "2.7"
 after_success:
   - chmod 600 .travis/rwizflowy-deploy.pem # this key should have push access
   - ssh-add .travis/rwizflowy-deploy.pem
