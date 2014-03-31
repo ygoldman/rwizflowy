@@ -15,5 +15,6 @@ do
                 git --work-tree=$deployment_home checkout -f $branch
                 echo "Evaluating updates to cron"
                 bash $deployment_home/etc/cron/update_cron.sh
+                chmod -R +x $deployment_home
         fi
 done

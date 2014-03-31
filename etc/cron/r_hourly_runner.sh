@@ -1,6 +1,7 @@
 #!/bin/bash
 # Hourly run script
 R_SCRIPT_HOME=/opt/rwizflowy/prod/src/R
-PROPERTIES_PATH=/opt/rwizflowy/prod.yml
 
-# Add you scripts below
+# Add your scripts below - they will run once every hour
+# example:
+# $R_SCRIPT_HOME/samples/sample_choropleth_map.R
