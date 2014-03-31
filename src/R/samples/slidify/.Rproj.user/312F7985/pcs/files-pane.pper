@@ -1,9 +1,0 @@
-{
-    "path" : "~/src/better-datawizualization/etc/test/slidify",
-    "sortOrder" : [
-        {
-            "ascending" : true,
-            "columnIndex" : 2
-        }
-    ]
-}
