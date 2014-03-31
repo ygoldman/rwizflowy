@@ -4,6 +4,8 @@
 # dumb transports.
 #
 # To enable this hook, rename this file to "post-receive"
+# This hook must be deployed to your remote git hub folder
+# for example: /usr/rwizflowy/git-repos/rwizflowy/hooks
 while read oldrev newrev refname
 do
         branch=$(git rev-parse --symbolic --abbrev-ref $refname)
