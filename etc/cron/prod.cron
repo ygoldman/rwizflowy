@@ -3,10 +3,10 @@
 APP_HOME=/opt/rwizflowy/prod
 
 # Run daily scripts (00:01)
-01 00 * * * rwizflowy $APP_HOME/etc/cron/r_daily_runner.sh
+01 00 * * * $APP_HOME/etc/cron/r_daily_runner.sh
 
 # Run hourly scripts (0*:00)
-00 * * * * rwizflowy $APP_HOME/etc/cron/r_hourly_runner.sh
+00 * * * * $APP_HOME/etc/cron/r_hourly_runner.sh
 
 # Run minute scripts (**)
-* * * * * rwizflowy $APP_HOME/etc/cron/r_minute_runner.sh
+* * * * * $APP_HOME/etc/cron/r_minute_runner.sh

@@ -7,7 +7,7 @@ python:
 install:
   - pip install -r etc/python/requirements.txt
 script:
-  - chkcrontab etc/cron/prod.cron
+  - ls -l etc/cron/
 # whitelist
 branches:
   only:
