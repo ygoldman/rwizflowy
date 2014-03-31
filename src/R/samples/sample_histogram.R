@@ -2,7 +2,7 @@
 
 ###############################
 ## define team name          ##
-team_name <- "betternauts"   ##
+team_name <- "zomg-zombies"   ##
 ###############################
 
 # import packages or install them if they don't exist [helper written by @Shane from stackoverflow]

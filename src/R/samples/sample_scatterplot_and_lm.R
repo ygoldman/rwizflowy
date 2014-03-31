@@ -2,7 +2,7 @@
 
 ###############################
 ## define team name          ##
-team_name <- "betternauts"   ##
+team_name <- "zomg-zombies"   ##
 ###############################
 
 # import packages or install them if they don't exist [helper written by @Shane from stackoverflow]
@@ -62,7 +62,7 @@ user_info$user_initial_deposit_date <- as.POSIXlt(user_info$user_initial_deposit
 # scatter plot, age vs current balance
 png(filename="scatterplot_with_lm_example.png", width=1440, height=950)
 
-plot(user_info$user_age, log10(user_info$user_current_balance), main="Scatterplot Example", 
+plot(user_info$user_age, log10(user_info$user_current_balance), main="Scatterplot Example",
      xlab="User Age ", ylab="Log10 of Current Balance (# is tens place)", pch=20)
 
 # add a simple linear regression on top.  Note: this is a terrible example to throw an lm on top... but whatevs.

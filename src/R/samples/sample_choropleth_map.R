@@ -2,7 +2,7 @@
 
 ###############################
 ## define team name          ##
-team_name <- "betternauts"   ##
+team_name <- "zomg-zombies"   ##
 ###############################
 
 # import packages or install them if they don't exist [helper written by @Shane from stackoverflow]
@@ -77,8 +77,8 @@ png(filename="chorolpleth_map_by_state_example.png", width=1440, height=950)
 
 # plot the map!
 qplot(
-  long, lat, data = merged_info, group = group, 
-  fill = total_balance, geom = "polygon" 
+  long, lat, data = merged_info, group = group,
+  fill = total_balance, geom = "polygon"
 )
 
 dev.off()
