@@ -6,9 +6,14 @@ team_name <- "betternauts"   ##
 ###############################
 
 # import packages or install them if they don't exist [helper written by @Shane from stackoverflow]
-list.of.packages <- c("yaml", "ggplot2", "RMySQL")
+list.of.packages <- c("yaml", "ggplot2", "RMySQL", "maps")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+if(length(new.packages)) install.packages(new.packages, repos='http://cran.us.r-project.org'))
+
+require(yaml)
+require(ggplot2)
+require(RMySQL)
+require(maps)
 
 # define the yml (properties) file, read it in as a list
 config_file_path <- "~/rwiz.yml"
@@ -54,9 +59,9 @@ user_info$user_initial_deposit_date <- as.POSIXlt(user_info$user_initial_deposit
 # get state shape file from maps package
 states_info <- map_data("state")
 # get rid of that pesky Washington DC. It's not good for much anyway.
-states_info = subset(states.df,group!=8)
+states_info = subset(states_info,group!=8)
 # attach state abbreviations for merging to our data
-states_info$st <- state.abb[match(states.df$region,tolower(state.name))]
+states_info$st <- state.abb[match(states_info$region,tolower(state.name))]
 
 # summarize data by state (sum) (aggregate is in the plyr package)
 state_data <- aggregate(user_current_balance ~ user_address_state_abv, data = user_info, FUN=sum)
