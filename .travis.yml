@@ -8,6 +8,12 @@ install:
   - pip install -r etc/python/requirements.txt
 script:
   - chkcrontab etc/cron/prod.cron
+# whitelist
+branches:
+  only:
+   - master
+   - develop
+
 after_success:
   - chmod 600 .travis/rwizflowy-deployer.pem # this key should have push access
   - eval `ssh-agent` && ssh-add .travis/rwizflowy-deployer.pem
