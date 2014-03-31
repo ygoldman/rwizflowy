@@ -10,6 +10,11 @@ list.of.packages <- c("yaml", "ggplot2", "RMySQL", "maps")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, repos='http://cran.us.r-project.org'))
 
+require(yaml)
+require(ggplot2)
+require(RMySQL)
+require(maps)
+
 # define the yml (properties) file, read it in as a list
 config_file_path <- "~/rwiz.yml"
 print(paste("Using config yml: ", config_file_path))
