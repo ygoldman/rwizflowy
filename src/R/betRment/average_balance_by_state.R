@@ -73,12 +73,12 @@ state_data <- rename(state_data, c("user_address_state_abv"="st", "user_current_
 merged_info <- merge(x=states_info, y = state_data, by = "st", all = TRUE)
 
 # create the choropleth (heat) map
-png(filename="chorolpleth_map_by_state_example.png", width=1440, height=950)
+png(filename="chorolpleth_avg_balance_by_state_bettRment.png", width=1440, height=950)
 
 # plot the map!
 qplot(
   long, lat, data = merged_info, group = group, 
-  fill = average_balance, geom = "polygon" 
+  fill = average_balance, geom = "polygon"
 )
 
 dev.off()
