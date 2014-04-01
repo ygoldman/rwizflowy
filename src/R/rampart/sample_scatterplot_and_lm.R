@@ -6,15 +6,12 @@ team_name <- "betternauts"   ##
 ###############################
 
 # import packages or install them if they don't exist [helper written by @Shane from stackoverflow]
-list.of.packages <- c("yaml", "ggplot2", "RMySQL", "maps", "plyr")
+list.of.packages <- c("yaml", "RMySQL")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, repos='http://cran.us.r-project.org')
 
 require(yaml)
-require(ggplot2)
 require(RMySQL)
-require(maps)
-require(plyr)
 
 # define the yml (properties) file, read it in as a list
 config_file_path <- "~/rwiz.yml"
@@ -31,6 +28,11 @@ system(sprintf("mkdir %s",team_path))
 # set this new directory as your working directory so all of your outputs will write to it
 setwd(team_path)
 
+# define the yml (properties) file, read it in as a list
+config_file_path <- "~/rwiz.yml"
+print(paste("Using config yml: ", config_file_path))
+config <- yaml.load_file(config_file_path)
+
 # set up db con function
 dbCon <- function(dbname, user, password, host="localhost", port=3306){
   dbcon <- dbConnect("MySQL", dbname=dbname, user=user,
@@ -46,7 +48,7 @@ con <- dbCon(config$rwizflowy.db.rwizflowy$name,
              config$rwizflowy.db.rwizflowy$port)
 
 # construct query
-user_info_query <- "SELECT * from user_info;"
+user_info_query <- "SELECT * from rwizflowy.user_info;"
 
 # run the query
 user_info <- dbGetQuery(con, user_info_query)
@@ -57,29 +59,14 @@ user_info$user_signup_started_date <- as.POSIXlt(user_info$user_signup_started_d
 user_info$user_signup_completed_date <- as.POSIXlt(user_info$user_signup_completed_date)
 user_info$user_initial_deposit_date <- as.POSIXlt(user_info$user_initial_deposit_date)
 
-# get state shape file from maps package
-states_info <- map_data("state")
-# get rid of that pesky Washington DC. It's not good for much anyway.
-states_info = subset(states_info,group!=8)
-# attach state abbreviations for merging to our data
-states_info$st <- state.abb[match(states_info$region,tolower(state.name))]
+# scatter plot, age vs current balance
+png(filename="scatterplot_with_lm_example.png", width=1440, height=950)
 
-# summarize data by state (sum) (aggregate is in the plyr package)
-state_data <- aggregate(user_current_balance ~ user_address_state_abv, data = user_info, FUN=sum)
-# rename the values to be consistent with the shape file state names
-state_data <- rename(state_data, c("user_address_state_abv"="st", "user_current_balance"="total_balance"))
+plot(user_info$user_age, log10(user_info$user_current_balance), main="Scatterplot Example", 
+     xlab="User Age ", ylab="Log10 of Current Balance (# is tens place)", pch=20)
 
-# merge on values to shape file
-merged_info <- merge(x=states_info, y = state_data, by = "st", all = TRUE)
-
-# create the choropleth (heat) map
-png(filename="chorolpleth_map_by_state_example.png", width=1440, height=950)
-
-# plot the map!
-qplot(
-  long, lat, data = merged_info, group = group, 
-  fill = total_balance, geom = "polygon" 
-)
-
+# add a simple linear regression on top.  Note: this is a terrible example to throw an lm on top... but whatevs.
+reg1 <- lm(log10(user_info$user_current_balance)~user_info$user_age)
+# plot the regression on top of the chart
+abline(reg1, col="red")
 dev.off()
-
