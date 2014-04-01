@@ -31,3 +31,12 @@ Deployment. GitHub and Travis-CI:
 * a Post-Receive hook on the EC2 instance's git repo will deploy the latest code, update cron, set permissions
 * next time cron executes, your script will run against production data and update the visualizations in the S3 bucket (S3 bucket is also mounted on the EC2 server)
 * reload your wiki and your visualizations are now updating over time
+
+The Stack
+---------
+Swap in your own technology. It is the workflow/process that is important.  But, this project provides scaffolding for
+* G. GitHub
+* R. R-language
+* E. Engineering Elbow Grease to glue everything together
+* A. Amazon Web Services: EC2 server, S3 Bucket for network storage, RDS running MySQL
+* T. Travis-CI: for continuous integration and deployment via GitHub
