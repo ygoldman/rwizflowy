@@ -56,10 +56,10 @@ user_info <- dbGetQuery(con, user_info_query)
 # signups by month histogram (using ggpot2)
 bin <- 30 # used for aggregating the data and aligning the labels
 # initialize the png controller
-png(filename="newthin.png", width=1440, height=950)
+png(filename="newthing.png", width=1440, height=950)
 # run the plot.  since it is not being passed to an object, it just prints to the png
 
-plot <- ggplot(user_info, aes(x=user_age,y=user_current_balance, color=user_reported_employment_status)) + geom_point() + geom_smooth(method="lm") + facet_grid(.~user_reported_employment_status)
+plot <- ggplot(user_info, aes(x=user_age,y=user_current_balance, color=user_reported_employment_status)) + geom_point() + facet_grid(.~user_reported_employment_status)
 plot
 
 # turn off the plotting function
