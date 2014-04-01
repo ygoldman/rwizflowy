@@ -34,9 +34,11 @@ Deployment. GitHub and Travis-CI:
 
 The Stack
 ---------
-Swap in your own technology. It is the workflow/process that is important.  But, this project provides scaffolding for
+This project provides scaffolding for
 * G. GitHub
 * R. R-language
 * E. Engineering Elbow Grease to glue everything together
 * A. Amazon Web Services: EC2 server, S3 Bucket for network storage, RDS running MySQL
 * T. Travis-CI: for continuous integration and deployment via GitHub
+
+
