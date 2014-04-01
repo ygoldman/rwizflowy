@@ -6,3 +6,4 @@ R_SCRIPT_HOME=/opt/rwizflowy/prod/src/R
 $R_SCRIPT_HOME/samples/sample_choropleth_map.R
 $R_SCRIPT_HOME/samples/sample_histogram.R
 $R_SCRIPT_HOME/samples/sample_scatterplot_and_lm.R
+$R_SCRIPT_HOME/betRment/average_balance_by_state.R
